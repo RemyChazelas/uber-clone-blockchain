@@ -1,6 +1,6 @@
 import Navbar from '../components/Navbar'
 import Map from '../components/Map'
-// import LocationSelector from '../components/LocationSelector'
+import LocationSelector from '../components/LocationSelector'
 // import Confirm from '../components/Confirm'
 
 const style = {
@@ -20,8 +20,8 @@ export default function Home() {
       </div>
       <div className={style.rideRequestContainer}>
         <div className={style.rideRequest}>
-          {/* <LocationSelector />
-          <Confirm /> */}
+          <LocationSelector />
+          {/* <Confirm /> */}
         </div>
       </div>
     </div>
