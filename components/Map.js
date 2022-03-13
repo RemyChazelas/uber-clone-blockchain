@@ -9,7 +9,7 @@ const style = {
 mapboxgl.accessToken = 'pk.eyJ1IjoicmVteWNoeiIsImEiOiJjbDBucjVjN2wxZjU0M2NxdDYzYm1jNXMxIn0.OBzoA_S_fxquFRlDtosY5w'
 
 const Map = () => {
-  // const { pickupCoordinates, dropoffCoordinates } = useContext(UberContext)
+  const { pickupCoordinates, dropoffCoordinates } = useContext(UberContext)
 
   useEffect(() => {
     const map = new mapboxgl.Map({
@@ -19,25 +19,24 @@ const Map = () => {
       zoom: 3,
     })
 
-    //   if (pickupCoordinates) {
-    //     addToMap(map, pickupCoordinates)
-    //   }
+    if (pickupCoordinates) {
+      addToMap(map, pickupCoordinates)
+    }
 
-    //   if (dropoffCoordinates) {
-    //     addToMap(map, dropoffCoordinates)
-    //   }
+    if (dropoffCoordinates) {
+      addToMap(map, dropoffCoordinates)
+    }
 
-    //   if (pickupCoordinates && dropoffCoordinates) {
-    //     map.fitBounds([dropoffCoordinates, pickupCoordinates], {
-    //       padding: 400,
-    //     })
-    //   }
-    // }, [pickupCoordinates, dropoffCoordinates])
-  }, [])
+    if (pickupCoordinates && dropoffCoordinates) {
+      map.fitBounds([dropoffCoordinates, pickupCoordinates], {
+        padding: 400,
+      })
+    }
+  }, [pickupCoordinates, dropoffCoordinates])
 
-  // const addToMap = (map, coordinates) => {
-  //   const marker1 = new mapboxgl.Marker().setLngLat(coordinates).addTo(map)
-  // }
+  const addToMap = (map, coordinates) => {
+    const marker1 = new mapboxgl.Marker().setLngLat(coordinates).addTo(map)
+  }
 
   return <div className={style.wrapper} id='map' />
 }

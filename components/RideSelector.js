@@ -17,6 +17,8 @@ const style = {
   price: `mr-[-0.8rem]`,
 }
 
+const basePrice = 1542
+
 const RideSelector = () => {
   const [carList, setCarList] = useState([])
   // const { selectedRide, setSelectedRide, setPrice, basePrice } =
@@ -45,14 +47,14 @@ const RideSelector = () => {
         {carList.map((car, index) => (
           <div
             key={index}
-            className={`${selectedRide.service === car.service
-              ? style.selectedCar
-              : style.car
-              }`}
-            onClick={() => {
-              setSelectedRide(car)
-              setPrice(((basePrice / 10 ** 5) * car.priceMultiplier).toFixed(5))
-            }}
+          // className={`${selectedRide.service === car.service
+          //   ? style.selectedCar
+          //   : style.car
+          //   }`}
+          // onClick={() => {
+          //   setSelectedRide(car)
+          //   setPrice(((basePrice / 10 ** 5) * car.priceMultiplier).toFixed(5))
+          // }}
           >
             <Image
               src={car.iconUrl}

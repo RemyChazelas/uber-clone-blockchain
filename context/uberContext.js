@@ -31,25 +31,25 @@ export const UberProvider = ({ children }) => {
 
   useEffect(() => {
     if (!pickupCoordinates || !dropoffCoordinates) return
-      ; (async () => {
-        try {
-          const response = await fetch('/api/map/getDuration', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-              pickupCoordinates: `${pickupCoordinates[0]},${pickupCoordinates[1]}`,
-              dropoffCoordinates: `${dropoffCoordinates[0]},${dropoffCoordinates[1]}`,
-            }),
-          })
+    (async () => {
+      try {
+        const response = await fetch('/api/map/getDuration', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            pickupCoordinates: `${pickupCoordinates[0]},${pickupCoordinates[1]}`,
+            dropoffCoordinates: `${dropoffCoordinates[0]},${dropoffCoordinates[1]}`,
+          }),
+        })
 
-          const data = await response.json()
-          setBasePrice(Math.round(await data.data))
-        } catch (error) {
-          console.error(error)
-        }
-      })()
+        const data = await response.json()
+        setBasePrice(Math.round(await data.data))
+      } catch (error) {
+        console.error(error)
+      }
+    })()
   }, [pickupCoordinates, dropoffCoordinates])
 
   const checkIfWalletIsConnected = async () => {

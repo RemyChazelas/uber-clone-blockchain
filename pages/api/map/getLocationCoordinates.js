@@ -1,5 +1,5 @@
 const getLocationCoordinates = async (req, res) => {
-  const mapboxUrl = `${process.env.MAPBOX_PLACES_API_URL}/${req.body.location}.json?access_token=${process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN}`
+  const mapboxUrl = `https://api.mapbox.com/geocoding/v5/mapbox.places/${req.body.location}.json?access_token=pk.eyJ1IjoicmVteWNoeiIsImEiOiJjbDBucjVjN2wxZjU0M2NxdDYzYm1jNXMxIn0.OBzoA_S_fxquFRlDtosY5w`
 
   try {
     const response = await fetch(mapboxUrl)
